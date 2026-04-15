@@ -27,23 +27,6 @@ npm run start     # next start -p 4000
 npm run check
 ```
 
-## Docker (forma mais simples)
-
-### Subir com Docker Compose
-
-```bash
-docker compose up --build
-```
-
-Aplicação: `http://localhost:4000`
-
-### Rodar só com Docker
-
-```bash
-docker build -t lic-mgmt .
-docker run --rm -p 4000:4000 lic-mgmt
-```
-
 ## Rotas principais
 
 - `/dashboard`
