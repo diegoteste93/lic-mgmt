@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 54% 97%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 216 92% 57%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 195 84% 55%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 214 32% 92%;
+  --muted-foreground: 215 16% 40%;
+  --accent: 210 44% 92%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 73% 55%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214 30% 86%;
+  --input: 214 30% 86%;
+  --ring: 216 92% 57%;
+  --radius: 0.8rem;
+  --tai-primary: 221 85% 48%;
+  --tai-secondary: 194 88% 50%;
+  --success: 152 57% 44%;
+  --success-foreground: 210 40% 98%;
+  --warning: 38 92% 55%;
+  --warning-foreground: 222 47% 11%;
+  --info: 204 94% 52%;
+  --info-foreground: 210 40% 98%;
+}
+
+.dark {
+  --background: 224 52% 7%;
+  --foreground: 212 38% 96%;
+  --card: 223 40% 11%;
+  --card-foreground: 212 38% 96%;
+  --popover: 223 40% 11%;
+  --popover-foreground: 212 38% 96%;
+  --primary: 214 95% 60%;
+  --primary-foreground: 220 46% 10%;
+  --secondary: 192 97% 53%;
+  --secondary-foreground: 221 40% 12%;
+  --muted: 221 31% 16%;
+  --muted-foreground: 214 20% 74%;
+  --accent: 221 30% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 356 71% 57%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 27% 20%;
+  --input: 220 27% 20%;
+  --ring: 214 95% 60%;
+  --tai-primary: 221 81% 52%;
+  --tai-secondary: 194 95% 57%;
+  --success: 152 57% 44%;
+  --success-foreground: 210 40% 98%;
+  --warning: 37 89% 56%;
+  --warning-foreground: 220 46% 10%;
+  --info: 201 95% 54%;
+  --info-foreground: 210 40% 98%;
+}
+
+* {
+  @apply border-border;
+}
+
+html,
+body {
+  @apply bg-background text-foreground min-h-full;
+}
+
+body {
+  font-feature-settings: 'ss01' 1, 'cv03' 1, 'cv04' 1;
+}
+
+.bg-pattern-mesh {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(at 12% 6%, hsl(var(--tai-primary) / 0.2) 0px, transparent 52%),
+    radial-gradient(at 84% 2%, hsl(var(--tai-secondary) / 0.14) 0px, transparent 48%),
+    radial-gradient(at 76% 88%, hsl(var(--tai-primary) / 0.09) 0px, transparent 62%);
+}
+
+.bg-pattern-gradient {
+  background-image: linear-gradient(
+    180deg,
+    hsl(var(--background) / 0.95) 0%,
+    hsl(var(--background) / 0.65) 100%
+  );
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+.glass-card-premium {
+  backdrop-filter: blur(14px);
+  background: hsl(var(--card) / 0.82);
+  border: 1px solid hsl(var(--border) / 0.92);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.34) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.34);
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.animate-fade-in-fast {
+  animation: fade-in-fast 0.2s ease-out;
+}
+
+.animate-scale-in-fast {
+  animation: scale-in-fast 0.2s ease-out;
+}
