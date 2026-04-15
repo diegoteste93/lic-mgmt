@@ -1,3 +1,5 @@
+'use client'
+
 import { SidebarNavSection } from '@/components/layout/sidebar-nav-section'
 import { SidebarNavItem } from '@/components/layout/sidebar-nav-item'
 import { appNavItems } from '@/lib/navigation'
