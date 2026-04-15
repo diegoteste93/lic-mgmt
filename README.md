@@ -1,20 +1,33 @@
 # LIC Management Frontend
 
-Frontend corporativo dark com Next.js 15, TypeScript, Tailwind, shadcn/ui e arquitetura por componentes.
+Frontend corporativo dark enterprise com Next.js 15, App Router, TypeScript, Tailwind, Radix/shadcn-style e foco em UX/admin backoffice.
 
-## Rodando localmente
+## Requisitos
+
+- Node.js 20+
+- npm 10+
+
+## Executar localmente
 
 ```bash
 npm install
 npm run dev
 ```
 
-Acesse: `http://localhost:3000`
+Abra `http://localhost:3000`.
 
-## Checks
+## Scripts
 
 ```bash
+npm run dev
 npm run lint
 npm run typecheck
 npm run build
+npm run check
 ```
+
+## Rotas principais
+
+- `/dashboard`
+- `/documentos/dashboard`
+- `/documentos/sem-permissao`

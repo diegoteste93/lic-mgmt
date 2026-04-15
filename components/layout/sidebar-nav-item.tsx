@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Lock } from 'lucide-react'
 import { useMemo, useState } from 'react'
+import { LockedBadge } from '@/components/layout/locked-badge'
 import { cn } from '@/lib/cn'
 import type { NavItem } from '@/types/navigation'
 
@@ -23,7 +24,7 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
         href={item.href}
         aria-disabled={item.isLocked}
         className={cn(
-          'group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 text-sm transition-all',
+          'group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           item.isLocked && 'pointer-events-none opacity-45',
           isActive
             ? 'border-primary/25 bg-primary/12 text-foreground'
@@ -32,7 +33,7 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
       >
         <item.icon className={cn('h-4 w-4', isActive ? 'text-primary' : 'text-muted-foreground')} />
         <span className="flex-1">{item.label}</span>
-        {item.isLocked && <Lock className="h-3.5 w-3.5" />}
+        {item.isLocked && <Lock className="h-3.5 w-3.5" aria-hidden="true" />}
       </Link>
     )
   }
@@ -41,9 +42,11 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
     <div className="space-y-1">
       <button
         type="button"
+        aria-expanded={open}
+        aria-label={`Alternar submenu de ${item.label}`}
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all',
+          'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           item.isLocked && 'pointer-events-none opacity-45',
           isActive
             ? 'bg-primary/12 text-foreground'
@@ -52,11 +55,15 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
       >
         <item.icon className={cn('h-4 w-4', isActive ? 'text-primary' : 'text-muted-foreground')} />
         <span className="flex-1 text-left">{item.label}</span>
-        {item.isLocked ? <Lock className="h-3.5 w-3.5" /> : <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} />}
+        {item.isLocked ? (
+          <LockedBadge className="border-none bg-transparent p-0 text-[11px]" />
+        ) : (
+          <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} />
+        )}
       </button>
 
       {hasChildren && open && (
-        <div className="animate-fade-in-fast space-y-1 border-l border-border/70 pl-4 ml-4">
+        <div className="animate-fade-in-fast ml-4 space-y-1 border-l border-border/70 pl-4">
           {item.children?.map((child) => {
             const activeChild = pathname === child.href
             return (
@@ -64,7 +71,7 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
                 key={child.href}
                 href={child.href}
                 className={cn(
-                  'flex items-center justify-between rounded-md px-3 py-2 text-sm transition-colors',
+                  'flex items-center justify-between rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                   activeChild
                     ? 'bg-primary/10 text-foreground'
                     : 'text-muted-foreground hover:bg-accent/40 hover:text-foreground',

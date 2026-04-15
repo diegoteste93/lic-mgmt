@@ -9,6 +9,8 @@ import { cn } from '@/lib/cn'
 export const Sheet = DialogPrimitive.Root
 export const SheetTrigger = DialogPrimitive.Trigger
 export const SheetClose = DialogPrimitive.Close
+export const SheetTitle = DialogPrimitive.Title
+export const SheetDescription = DialogPrimitive.Description
 
 export const SheetPortal = DialogPrimitive.Portal
 
@@ -16,7 +18,11 @@ export const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay ref={ref} className={cn('fixed inset-0 z-50 bg-black/50 backdrop-blur-sm', className)} {...props} />
+  <DialogPrimitive.Overlay
+    ref={ref}
+    className={cn('fixed inset-0 z-50 bg-black/50 backdrop-blur-sm', className)}
+    {...props}
+  />
 ))
 SheetOverlay.displayName = DialogPrimitive.Overlay.displayName
 
@@ -39,6 +45,8 @@ export const SheetContent = React.forwardRef<
   <SheetPortal>
     <SheetOverlay />
     <DialogPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
+      <DialogPrimitive.Title className="sr-only">Menu lateral</DialogPrimitive.Title>
+      <DialogPrimitive.Description className="sr-only">Navegação principal do sistema</DialogPrimitive.Description>
       {children}
       <DialogPrimitive.Close className="absolute right-3 top-3 rounded-sm p-1 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
         <X className="h-4 w-4" />
