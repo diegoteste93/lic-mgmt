@@ -5,9 +5,9 @@ import { UserGreeting } from '@/components/layout/user-greeting'
 
 export function AppHeader() {
   return (
-    <header className="fixed top-0 left-0 md:left-56 xl:left-80 right-0 z-20 h-[3.75rem] border-b border-border bg-background/70 backdrop-blur-xl">
-      <div className="h-full px-4 md:px-6 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 min-w-0">
+    <header className="fixed top-0 left-0 md:left-56 xl:left-80 right-0 z-20 h-[3.75rem] border-b border-border/80 bg-background/62 backdrop-blur-2xl">
+      <div className="h-full px-4 md:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 min-w-0">
           <MobileSidebarDrawer />
           <BreadcrumbNav />
         </div>

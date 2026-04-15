@@ -16,11 +16,11 @@ export function UserAvatarMenu() {
   return (
     <div className="flex items-center gap-2">
       <Button variant="ghost" size="icon" aria-label="Atividades recentes">
-        <Bell className="h-4 w-4" />
+        <Bell className="h-[17px] w-[17px]" />
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="secondary" size="icon" className="rounded-full" aria-label="Menu do usuário">
+          <Button variant="secondary" size="icon" className="rounded-full border border-border/80 bg-muted/70 font-semibold" aria-label="Menu do usuário">
             {mockUser.initials}
           </Button>
         </DropdownMenuTrigger>

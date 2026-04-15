@@ -24,14 +24,14 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
         href={item.href}
         aria-disabled={item.isLocked}
         className={cn(
-          'group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-          item.isLocked && 'pointer-events-none opacity-45',
+          'group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 text-[13px] font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+          item.isLocked && 'pointer-events-none opacity-40',
           isActive
-            ? 'border-primary/25 bg-primary/12 text-foreground'
-            : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
+            ? 'border-primary/30 bg-primary/14 text-foreground shadow-[inset_0_0_0_1px_hsl(var(--primary)/0.08)]'
+            : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground',
         )}
       >
-        <item.icon className={cn('h-4 w-4', isActive ? 'text-primary' : 'text-muted-foreground')} />
+        <item.icon className={cn('h-[17px] w-[17px]', isActive ? 'text-primary' : 'text-muted-foreground')} />
         <span className="flex-1">{item.label}</span>
         {item.isLocked && <Lock className="h-3.5 w-3.5" aria-hidden="true" />}
       </Link>
@@ -46,19 +46,19 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
         aria-label={`Alternar submenu de ${item.label}`}
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-          item.isLocked && 'pointer-events-none opacity-45',
+          'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+          item.isLocked && 'pointer-events-none opacity-40',
           isActive
-            ? 'bg-primary/12 text-foreground'
-            : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
+            ? 'border border-primary/25 bg-primary/13 text-foreground'
+            : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground',
         )}
       >
-        <item.icon className={cn('h-4 w-4', isActive ? 'text-primary' : 'text-muted-foreground')} />
+        <item.icon className={cn('h-[17px] w-[17px]', isActive ? 'text-primary' : 'text-muted-foreground')} />
         <span className="flex-1 text-left">{item.label}</span>
         {item.isLocked ? (
           <LockedBadge className="border-none bg-transparent p-0 text-[11px]" />
         ) : (
-          <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} />
+          <ChevronDown className={cn('h-4 w-4 transition-transform duration-200', open && 'rotate-180')} />
         )}
       </button>
 
@@ -71,11 +71,11 @@ export function SidebarNavItem({ item }: { item: NavItem }) {
                 key={child.href}
                 href={child.href}
                 className={cn(
-                  'flex items-center justify-between rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+                  'flex items-center justify-between rounded-md px-3 py-2 text-[13px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
                   activeChild
-                    ? 'bg-primary/10 text-foreground'
-                    : 'text-muted-foreground hover:bg-accent/40 hover:text-foreground',
-                  child.isLocked && 'pointer-events-none opacity-45',
+                    ? 'bg-primary/12 text-foreground'
+                    : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
+                  child.isLocked && 'pointer-events-none opacity-40',
                 )}
               >
                 {child.label}

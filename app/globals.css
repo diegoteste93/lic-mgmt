@@ -34,9 +34,9 @@
 }
 
 .dark {
-  --background: 222 48% 8%;
+  --background: 224 52% 7%;
   --foreground: 212 38% 96%;
-  --card: 223 42% 12%;
+  --card: 223 40% 11%;
   --card-foreground: 212 38% 96%;
   --popover: 223 40% 11%;
   --popover-foreground: 212 38% 96%;
@@ -44,14 +44,14 @@
   --primary-foreground: 220 46% 10%;
   --secondary: 192 97% 53%;
   --secondary-foreground: 221 40% 12%;
-  --muted: 220 34% 17%;
-  --muted-foreground: 214 21% 72%;
-  --accent: 220 32% 18%;
+  --muted: 221 31% 16%;
+  --muted-foreground: 214 20% 74%;
+  --accent: 221 30% 17%;
   --accent-foreground: 210 40% 98%;
   --destructive: 356 71% 57%;
   --destructive-foreground: 210 40% 98%;
-  --border: 220 28% 22%;
-  --input: 220 28% 22%;
+  --border: 220 27% 20%;
+  --input: 220 27% 20%;
   --ring: 214 95% 60%;
   --tai-primary: 221 81% 52%;
   --tai-secondary: 194 95% 57%;
@@ -79,9 +79,9 @@ body {
 .bg-pattern-mesh {
   background-color: hsl(var(--background));
   background-image:
-    radial-gradient(at 15% 8%, hsl(var(--tai-primary) / 0.24) 0px, transparent 55%),
-    radial-gradient(at 88% 4%, hsl(var(--tai-secondary) / 0.18) 0px, transparent 50%),
-    radial-gradient(at 72% 84%, hsl(var(--tai-primary) / 0.1) 0px, transparent 65%);
+    radial-gradient(at 12% 6%, hsl(var(--tai-primary) / 0.2) 0px, transparent 52%),
+    radial-gradient(at 84% 2%, hsl(var(--tai-secondary) / 0.14) 0px, transparent 48%),
+    radial-gradient(at 76% 88%, hsl(var(--tai-primary) / 0.09) 0px, transparent 62%);
 }
 
 .bg-pattern-gradient {
@@ -103,14 +103,14 @@ body {
 }
 
 .glass-card-premium {
-  backdrop-filter: blur(12px);
-  background: hsl(var(--card) / 0.8);
-  border: 1px solid hsl(var(--border) / 0.8);
+  backdrop-filter: blur(14px);
+  background: hsl(var(--card) / 0.82);
+  border: 1px solid hsl(var(--border) / 0.92);
 }
 
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--muted-foreground) / 0.25) transparent;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.34) transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -119,8 +119,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.28);
+  background: hsl(var(--muted-foreground) / 0.34);
   border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .animate-fade-in-fast {

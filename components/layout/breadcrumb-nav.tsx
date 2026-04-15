@@ -20,10 +20,10 @@ export function BreadcrumbNav() {
 
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+      <ol className="flex items-center gap-2.5 text-sm text-muted-foreground">
         <li>
           <Link href="/dashboard" className="hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm" aria-label="Home">
-            <House className="h-4 w-4" />
+            <House className="h-[15px] w-[15px]" />
           </Link>
         </li>
         {segments.map((segment, index) => {
@@ -36,7 +36,7 @@ export function BreadcrumbNav() {
               {isLast ? (
                 <span className="font-medium text-foreground">{toTitle(segment)}</span>
               ) : (
-                <Link href={href} className="hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm px-0.5">
+                <Link href={href} className="hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm px-0.5 text-muted-foreground">
                   {toTitle(segment)}
                 </Link>
               )}
